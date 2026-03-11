@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@300;400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+@variant dark (&:is(.dark *));
+
+@theme {
+  /* Tailwind v4: Define utility classes using CSS variables */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Radius */
+  --radius-lg: 0.75rem;
+  --radius-md: calc(0.75rem - 2px);
+  --radius-sm: calc(0.75rem - 4px);
+
+  /* Font families */
+  --font-sans: var(--font-inter), Inter, sans-serif;
+  --font-bangla: "Noto Serif Bengali", serif;
+
+  /* Animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --background: oklch(97% 0.01 40);
+    --foreground: oklch(12% 0.03 160);
+    --card: oklch(100% 0 0);
+    --card-foreground: oklch(12% 0.03 160);
+    --popover: oklch(100% 0 0);
+    --popover-foreground: oklch(12% 0.03 160);
+    --primary: oklch(22% 0.04 160);
+    --primary-foreground: oklch(97% 0.01 40);
+    --secondary: oklch(55% 0.06 38);
+    --secondary-foreground: oklch(100% 0 0);
+    --muted: oklch(92% 0.02 40);
+    --muted-foreground: oklch(45% 0.01 160);
+    --accent: oklch(55% 0.06 38);
+    --accent-foreground: oklch(100% 0 0);
+    --destructive: oklch(60% 0.08 0);
+    --destructive-foreground: oklch(98% 0.04 210);
+    --border: oklch(88% 0.015 40);
+    --input: oklch(88% 0.015 40);
+    --ring: oklch(22% 0.04 160);
+  }
+
+  .dark {
+    --background: oklch(17.928% 0.03546 157.254);
+    --foreground: oklch(96% 0.01 40);
+
+    --card: oklch(16% 0.02 160);
+    --card-foreground: oklch(96% 0.01 40);
+
+    --popover: oklch(16% 0.02 160);
+    --popover-foreground: oklch(96% 0.01 40);
+
+    --primary: oklch(72% 0.08 160);
+    --primary-foreground: oklch(14% 0.02 160);
+
+    --secondary: oklch(62% 0.08 38);
+    --secondary-foreground: oklch(14% 0.02 160);
+
+    --muted: oklch(22% 0.02 160);
+    --muted-foreground: oklch(70% 0.02 40);
+
+    --accent: oklch(62% 0.08 38);
+    --accent-foreground: oklch(14% 0.02 160);
+
+    --destructive: oklch(65% 0.12 25);
+    --destructive-foreground: oklch(98% 0.02 40);
+
+    --border: oklch(28% 0.02 160);
+    --input: oklch(28% 0.02 160);
+    --ring: oklch(72% 0.08 160);
+  }
+}
+
+* {
+  border-color: var(--border);
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+
+  .font-bangla {
+    font-family: var(--font-bangla);
+  }
+
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--primary) 0%,
+      oklch(30% 0.035 160) 50%,
+      var(--accent) 100%
+    );
+  }
+}
