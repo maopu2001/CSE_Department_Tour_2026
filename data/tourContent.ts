@@ -59,7 +59,10 @@ const tourEndDate = day5;
 
 export const content = {
   formLink: "https://forms.gle/yjuFYSFneT5j3kfG7",
+
+  // English content
   en: {
+    // Basic Info
     title: "Sundarban",
     subtitle: "A Quest for Nature's Eternal Mystery",
     eventTitle: "CSE Department Tour 2026",
@@ -72,6 +75,7 @@ export const content = {
     shipStay: "3 Days 2 Night on Ship",
     busTravel: "2 Days/Nights Bus Travel",
 
+    // Places to Visit
     placesTitle: "Places to Visit",
     places: [
       {
@@ -79,19 +83,15 @@ export const content = {
         href: "https://maps.app.goo.gl/5kz2MkNTBbZTZogU7",
       },
       {
-        place: "Harbaria Eco-Tourism Center",
-        href: "https://maps.app.goo.gl/VqjkBxD3R2kTSCD56",
-      },
-      {
         place: "Jamtola Watch Tower + Sea Beach",
         href: "https://maps.app.goo.gl/6cmLtM2mvQrCLEFu7",
       },
       {
-        place: "Kotka",
+        place: "Kotka Office Par",
         href: "https://maps.app.goo.gl/e2vjReUTEDGo1mKJ9",
       },
       {
-        place: "Dimer Char",
+        place: "Dimer Char + Pokkhir Char",
         href: "https://maps.app.goo.gl/7s2Dj4ad5DMWfPm59",
       },
       {
@@ -106,6 +106,7 @@ export const content = {
     placeNote:
       "Note: The exact locations may be subject to change based on weather conditions and other factors. We will keep you updated.",
 
+    // Schedule
     scheduleTitle: "Schedule",
     schedule: [
       {
@@ -134,13 +135,15 @@ export const content = {
       },
     ],
 
+    // Budget
     budgetTitle: "Budget",
     totalBudget: "Total Budget: ৳8,000 (per student)",
-    preReg: "Pre-Registration Fee: ৳2,000 (per student)",
-    remaining: "Remaining ৳6,000 can be paid on the bus on departure day.",
+    preReg: "Pre-Registration Fee: Minimum ৳3,000 (per student)",
+    remaining: "Remaining ৳5,000 can be paid on the bus on departure day.",
     nonRefundable: "Pre-registration fee is Non-Refundable.",
     deadline: `Pre-Registration Deadline: ${formatEnglishDate(PRE_REG_DATE)}, 2026`,
 
+    // Payment Methods
     paymentTitle: "Payment Methods",
     bkash: {
       title: "bKash (Send Money)",
@@ -157,6 +160,8 @@ export const content = {
     },
     paymentNote:
       "After payment, submit proof (screenshot/receipt) via the Pre-Registration Google Form. Form submission is mandatory.",
+
+    // Other Info
     preRegBtn: "Pre-Register Now",
     showFlyer: "View Flyer",
     closingNote:
@@ -166,9 +171,11 @@ export const content = {
     langSwitch: "Bn",
   },
 
+  // Bengali content
   bn: {
+    // Basic Info
     title: "সুন্দরবন",
-    subtitle: "প্রকৃতির এক অনন্য রহস্যের সন্ধান",
+    subtitle: "প্রকৃতির এক অনন্য রহস্যের সন্ধানে",
     eventTitle: "সিএসই ডিপার্টমেন্ট ট্যুর ২০২৬",
     dept: "কম্পিউটার সায়েন্স ও ইঞ্জিনিয়ারিং বিভাগ",
     university: "রাঙ্গামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -178,6 +185,8 @@ export const content = {
     duration: "মোট সময়ঃ ৫ দিন",
     shipStay: "৩ দিন ২ রাত শিপে",
     busTravel: "২ দিন/রাত বাসে যাতায়াত",
+
+    // Places to Visit
     placesTitle: "মূল আকর্ষণ ও ভ্রমণ স্থানসমূহ",
     places: [
       {
@@ -185,19 +194,15 @@ export const content = {
         href: "https://maps.app.goo.gl/5kz2MkNTBbZTZogU7",
       },
       {
-        place: "হাড়বাড়িয়া ইকো-ট্যুরিজম সেন্টার",
-        href: "https://maps.app.goo.gl/VqjkBxD3R2kTSCD56",
-      },
-      {
         place: "জামতলা ওয়াচ টাওয়ার + সী বিচ",
         href: "https://maps.app.goo.gl/6cmLtM2mvQrCLEFu7",
       },
       {
-        place: "কটকা",
+        place: "কটকা অফিস পাড়",
         href: "https://maps.app.goo.gl/e2vjReUTEDGo1mKJ9",
       },
       {
-        place: "ডিমের চর",
+        place: "ডিমের চর + পক্ষীর চর",
         href: "https://maps.app.goo.gl/7s2Dj4ad5DMWfPm59",
       },
       {
@@ -212,6 +217,7 @@ export const content = {
     placeNote:
       "বিঃদ্রঃ আবহাওয়া পরিস্থিতি এবং অন্যান্য কারণের উপর নির্ভর করে ভ্রমণ স্থানসমূহ পরিবর্তিত হতে পারে। কোনো পরিবর্তন হলে জানিয়ে দেয়া হবে।",
 
+    // Schedule
     scheduleTitle: "বিস্তারিত সূচি",
     schedule: [
       {
@@ -239,13 +245,17 @@ export const content = {
         desc: "রাঙ্গামাটি পৌঁছানো",
       },
     ],
+
+    // Budget
     budgetTitle: "ট্যুর বাজেট",
     totalBudget: "মোট ট্যুর বাজেটঃ ৮,০০০ টাকা (প্রতি শিক্ষার্থী)",
-    preReg: "প্রি-রেজিস্ট্রেশন ফিঃ ২,০০০ টাকা (প্রতি শিক্ষার্থী)",
+    preReg: "প্রি-রেজিস্ট্রেশন ফিঃ সর্বনিম্ন ৩,০০০ টাকা (প্রতি শিক্ষার্থী)",
     remaining:
-      "বাকি ৬,০০০ টাকা ট্যুরে যাওয়ার দিন বাসে ওঠার পর জমা দেওয়া যাবে।",
+      "বাকি ৫,০০০ টাকা ট্যুরে যাওয়ার দিন বাসে ওঠার পর জমা দেওয়া যাবে।",
     nonRefundable: "প্রি-রেজিস্ট্রেশনের টাকা অফেরতযোগ্য (Non-Refundable)।",
     deadline: `প্রি-রেজিস্ট্রেশনের শেষ সময়ঃ ${formatBengaliDate(PRE_REG_DATE)}, ২০২৬`,
+
+    // Payment Methods
     paymentTitle: "টাকা জমা দেওয়ার নিয়ম",
     bkash: {
       title: "bKash (Send Money)",
@@ -262,6 +272,8 @@ export const content = {
     },
     paymentNote:
       "টাকা জমা দেওয়ার পর প্রমাণসহ (স্ক্রিনশট/রসিদ) Pre-Registration এর নির্দিষ্ট Google Form টি পূরণ করা বাধ্যতামূলক!",
+
+    // Other Info
     preRegBtn: "প্রি-রেজিস্ট্রেশন করুন",
     showFlyer: "ফ্লায়ার দেখুন",
     closingNote:

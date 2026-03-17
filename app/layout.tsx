@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { Providers } from "@/components/theme-providers";
+import { Providers } from "@/components/Provider";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 

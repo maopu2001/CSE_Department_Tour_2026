@@ -9,22 +9,18 @@ import {
   Wallet,
   Clock,
   TreePine,
-  Languages,
   ExternalLink,
-  FileImage,
   Copy,
   Check,
+  FileImage,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import FlyerModal from "@/components/FlyerModal";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { content } from "@/data/tourContent";
+import { useFlyerModal, useLanguage } from "@/hooks/useQueries";
 import Link from "next/link";
 import Image from "next/image";
 
 export const dynamic = "force-dynamic";
-
-type Lang = "en" | "bn";
 
 function SectionHeader({
   icon,
@@ -42,8 +38,8 @@ function SectionHeader({
 }
 
 export default function Home() {
-  const [lang, setLang] = useState<Lang>("bn");
-  const [flyerOpen, setFlyerOpen] = useState(false);
+  const { lang } = useLanguage();
+  const { setFlyerOpen } = useFlyerModal();
   const t = content[lang];
   const isBn = lang === "bn";
 
@@ -51,65 +47,9 @@ export default function Home() {
     <div
       className={`min-h-screen bg-background ${isBn ? "font-bangla" : "font-sans"}`}
     >
-      {/* Header */}
-      <header className="sticky top-0 left-0 right-0 z-40 border-b border-border bg-card/80 backdrop-blur-md">
-        <div className="container mx-auto flex items-center justify-between px-4 py-3">
-          <div className="flex items-center gap-3">
-            <Image
-              className="hidden dark:block"
-              src="/white.webp"
-              alt="Logo"
-              width={45}
-              height={45}
-            />
-            <Image
-              className="dark:hidden"
-              src="/black.webp"
-              alt="Logo"
-              width={45}
-              height={45}
-            />
-            <span className="text-sm font-semibold text-primary tracking-wide">
-              {t.eventTitle}
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              onClick={() => setFlyerOpen(true)}
-              className="hidden sm:inline-flex"
-            >
-              <FileImage className="mr-1.5 h-4 w-4" />
-              {t.showFlyer}
-            </Button>
-            <Button
-              asChild
-              className="hidden sm:inline-flex bg-primary text-primary-foreground hover:bg-primary/90"
-            >
-              <a
-                href={content.formLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink className="mr-1.5 h-4 w-4" />
-                {t.preRegBtn}
-              </a>
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => setLang(lang === "en" ? "bn" : "en")}
-            >
-              <Languages className="mr-1.5 h-4 w-4" />
-              {t.langSwitch}
-            </Button>
-            <ThemeToggle />
-          </div>
-        </div>
-      </header>
-
       {/* Hero */}
-      <section className="hero-gradient py-20 px-4 text-center  pt-28 text-white">
-        <div className="h-60 container m-auto max-w-2xl animate-fade-in flex flex-col items-center justify-center">
+      <section className="flex justify-center items-center hero-gradient px-4 text-center text-white h-100">
+        <div className="container max-w-2xl animate-fade-in flex flex-col items-center justify-center">
           <p className="mb-2 text-sm font-medium uppercase tracking-widest opacity-80">
             {t.date}
           </p>
@@ -140,15 +80,16 @@ export default function Home() {
 
           <div className="mt-6 flex gap-2 flex-col w-fit mx-auto sm:hidden">
             <Button
-              variant="ghost"
               size="sm"
+              variant="outline"
+              className="p-4 bg-background/30"
               onClick={() => setFlyerOpen(true)}
-              className="py-4 bg-background/20"
             >
-              <FileImage className="mr-1.5 h-4 w-4" />
-              {t.showFlyer}
+              <div className="flex justify-center items-center gap-2">
+                <FileImage className="mr-2 h-5 w-5" />
+                {t.showFlyer}
+              </div>
             </Button>
-
             <Button size="sm" asChild className="p-4 bg-primary/70">
               <a
                 href={content.formLink}
@@ -322,8 +263,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <FlyerModal open={flyerOpen} onClose={() => setFlyerOpen(false)} />
 
       <footer>
         <div className="border-t border-border py-2 text-center">
