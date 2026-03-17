@@ -91,11 +91,7 @@ export default function Home() {
               </div>
             </Button>
             <Button size="sm" asChild className="p-4 bg-primary/70">
-              <a
-                href={content.formLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={content.formLink}>
                 <ExternalLink className="mr-2 h-5 w-5" />
                 {t.preRegBtn}
               </a>
@@ -167,6 +163,7 @@ export default function Home() {
           <div className="rounded-lg bg-card border border-border p-6 space-y-3">
             <p className="text-lg font-bold text-foreground">{t.totalBudget}</p>
             <p className="text-base font-semibold text-accent">{t.preReg}</p>
+            <p className="text-sm text-muted-foreground">{t.charge}</p>
             <p className="text-sm text-muted-foreground">{t.remaining}</p>
             <p className="text-sm font-medium text-red-600 dark:text-red-400">
               {t.nonRefundable}
@@ -201,6 +198,9 @@ export default function Home() {
                   <p>{t.bkash.account}</p>
                   <CopyButton copy={t.bkash.copy} field="bkash" />
                 </div>
+                <p className="text-sm text-muted-foreground">
+                  {t.bkash.charge}
+                </p>
                 <p className="text-muted-foreground">{t.bkash.holder}</p>
               </div>
             </div>
@@ -220,6 +220,7 @@ export default function Home() {
                   <p>{t.bank.account}</p>
                   <CopyButton copy={t.bank.copy} field="bank" />
                 </div>
+                <p className="text-sm text-muted-foreground">{t.bank.charge}</p>
                 <p className="text-muted-foreground">{t.bank.holder}</p>
               </div>
             </div>
@@ -245,11 +246,7 @@ export default function Home() {
             asChild
             className="bg-primary text-primary-foreground hover:bg-primary/90 px-8"
           >
-            <a
-              href={content.formLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={content.formLink}>
               <ExternalLink className="mr-2 h-5 w-5" />
               {t.preRegBtn}
             </a>
@@ -263,23 +260,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <footer>
-        <div className="border-t border-border py-2 text-center">
-          <p className="text-sm text-muted-foreground font-sans tex-nowrap">
-            &copy; {new Date().getFullYear()} | Made and Maintained by{" "}
-            <Link
-              className="text-primary hover:underline font-medium"
-              href="https://github.com/maopu2001"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              M. Aktaruzzaman Opu
-            </Link>
-            .
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

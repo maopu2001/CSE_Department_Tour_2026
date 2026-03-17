@@ -1,5 +1,5 @@
 const TOUR_START_DATE = new Date("2026-05-10"); // Format: YYYY-MM-DD
-const PRE_REG_DATE = new Date("2026-04-08"); // Format: YYYY-MM-DD
+const PRE_REG_DATE = new Date("2026-04-10"); // Format: YYYY-MM-DD
 
 const addDays = (date: Date, days: number) => {
   const result = new Date(date);
@@ -58,7 +58,7 @@ const day5 = addDays(TOUR_START_DATE, 4);
 const tourEndDate = day5;
 
 export const content = {
-  formLink: "https://forms.gle/yjuFYSFneT5j3kfG7",
+  formLink: "/pre-registration",
 
   // English content
   en: {
@@ -71,7 +71,7 @@ export const content = {
     address: "Jhagrabil, Rangamati.",
     batch: "Ovvudoy 07 (7th Batch)",
     date: `${formatEnglishDate(day1)} – ${formatEnglishDate(tourEndDate)}, 2026`,
-    duration: "5 Days Total",
+    duration: "4 Days Total",
     shipStay: "3 Days 2 Night on Ship",
     busTravel: "2 Days/Nights Bus Travel",
 
@@ -107,14 +107,14 @@ export const content = {
       "Note: The exact locations may be subject to change based on weather conditions and other factors. We will keep you updated.",
 
     // Schedule
-    scheduleTitle: "Schedule",
+    scheduleTitle: "Tentative Schedule",
     schedule: [
       {
-        date: `${formatEnglishDate(day1)} (Evening)`,
+        date: `${formatEnglishDate(day1)} (Afternoon)`,
         desc: "Bus departs from Rangamati to Khulna",
       },
       {
-        date: `${formatEnglishDate(day2)} (Morning/Noon)`,
+        date: `${formatEnglishDate(day2)} (Morning)`,
         desc: "Board ship towards Sundarban",
       },
       {
@@ -122,7 +122,7 @@ export const content = {
         desc: "Stay and explore Sundarban on ship",
       },
       {
-        date: `${formatEnglishDate(day4)} (Noon/Afternoon)`,
+        date: `${formatEnglishDate(day4)} (Afternoon/Evening)`,
         desc: "Ship tour ends",
       },
       {
@@ -139,6 +139,8 @@ export const content = {
     budgetTitle: "Budget",
     totalBudget: "Total Budget: ৳8,000 (per student)",
     preReg: "Pre-Registration Fee: Minimum ৳3,000 (per student)",
+    charge:
+      "For bKash transaction, ৳12.5 charge applicable per thousand. No charge for bank transfers.",
     remaining: "Remaining ৳5,000 can be paid on the bus on departure day.",
     nonRefundable: "Pre-registration fee is Non-Refundable.",
     deadline: `Pre-Registration Deadline: ${formatEnglishDate(PRE_REG_DATE)}, 2026`,
@@ -148,6 +150,7 @@ export const content = {
     bkash: {
       title: "bKash (Send Money)",
       account: "bkash No: 015-2171-2539",
+      charge: "bKash charge: ৳12.5 (per thousand)",
       copy: "01521712539",
       holder: "Name: M. Aktaruzzaman Opu",
     },
@@ -155,6 +158,7 @@ export const content = {
       title: "Bank Transfer",
       name: "Trust Bank PLC, Rangamati",
       account: "Account: 00480466000580",
+      charge: "Charge: Free",
       copy: "00480466000580",
       holder: "Name: M AKTARUZZAMAN OPU",
     },
@@ -182,7 +186,7 @@ export const content = {
     address: "ঝগড়াবিল, রাঙ্গামাটি।",
     batch: "অভ্যুদয় ০৭ (৭ম ব্যাচ)",
     date: `${formatBengaliDate(day1)} – ${formatBengaliDate(tourEndDate)} ২০২৬`,
-    duration: "মোট সময়ঃ ৫ দিন",
+    duration: "মোট সময়ঃ ৪ দিন",
     shipStay: "৩ দিন ২ রাত শিপে",
     busTravel: "২ দিন/রাত বাসে যাতায়াত",
 
@@ -218,14 +222,14 @@ export const content = {
       "বিঃদ্রঃ আবহাওয়া পরিস্থিতি এবং অন্যান্য কারণের উপর নির্ভর করে ভ্রমণ স্থানসমূহ পরিবর্তিত হতে পারে। কোনো পরিবর্তন হলে জানিয়ে দেয়া হবে।",
 
     // Schedule
-    scheduleTitle: "বিস্তারিত সূচি",
+    scheduleTitle: "সম্ভাব্য সময়সূচি",
     schedule: [
       {
-        date: `${formatBengaliDate(day1)} (সন্ধ্যা)`,
+        date: `${formatBengaliDate(day1)} (বিকাল)`,
         desc: "রাঙ্গামাটি থেকে খুলনা বাসে যাত্রা শুরু",
       },
       {
-        date: `${formatBengaliDate(day2)} (সকাল/দুপুর)`,
+        date: `${formatBengaliDate(day2)} (সকাল)`,
         desc: "শিপে সুন্দরবনের উদ্দেশ্যে যাত্রা",
       },
       {
@@ -233,7 +237,7 @@ export const content = {
         desc: "সুন্দরবনে শিপে অবস্থান ও ভ্রমণ",
       },
       {
-        date: `${formatBengaliDate(day4)} (দুপুর/বিকাল)`,
+        date: `${formatBengaliDate(day4)} (বিকাল/সন্ধ্যা)`,
         desc: "শিপের ভ্রমণ সমাপ্তি",
       },
       {
@@ -250,6 +254,8 @@ export const content = {
     budgetTitle: "ট্যুর বাজেট",
     totalBudget: "মোট ট্যুর বাজেটঃ ৮,০০০ টাকা (প্রতি শিক্ষার্থী)",
     preReg: "প্রি-রেজিস্ট্রেশন ফিঃ সর্বনিম্ন ৩,০০০ টাকা (প্রতি শিক্ষার্থী)",
+    charge:
+      "বিকাশে জমা দেওয়ার ক্ষেত্রে প্রতি হাজারে ১২.৫০ টাকা বিকাশ চার্জ প্রযোজ্য। ব্যাংক ট্রান্সফারের ক্ষেত্রে কোনো চার্জ নেই।",
     remaining:
       "বাকি ৫,০০০ টাকা ট্যুরে যাওয়ার দিন বাসে ওঠার পর জমা দেওয়া যাবে।",
     nonRefundable: "প্রি-রেজিস্ট্রেশনের টাকা অফেরতযোগ্য (Non-Refundable)।",
@@ -260,6 +266,7 @@ export const content = {
     bkash: {
       title: "bKash (Send Money)",
       account: "বিকাশ নম্বরঃ 015-2171-2539",
+      charge: "বিকাশ চার্জঃ ১২.৫০ টাকা (প্রতি হাজারে)",
       copy: "01521712539",
       holder: "হিসাবধারীর নামঃ M. Aktaruzzaman Opu",
     },
@@ -267,6 +274,7 @@ export const content = {
       title: "ব্যাংক ট্রান্সফার",
       name: "Trust Bank PLC, Rangamati",
       account: "হিসাব নম্বরঃ 00480466000580",
+      charge: "চার্জঃ ফ্রি",
       copy: "00480466000580",
       holder: "হিসাবধারীর নামঃ M AKTARUZZAMAN OPU",
     },
@@ -281,5 +289,19 @@ export const content = {
     organizeTitle: "আয়োজনে",
     organizer: "ধন্যবাদান্তে, অভ্যুদয় – ৭ (৭ম ব্যাচ)",
     langSwitch: "En",
+  },
+};
+
+export const formContent = {
+  // English form content
+  en: {
+    nidNote:
+      "For travelling to the Sundarbans, NID is required for Bangladesh Forest Department's permission; students must also present a valid ID.",
+  },
+
+  // Bengali form content
+  bn: {
+    nidNote:
+      "সুন্দরবনে ভ্রমণের ক্ষেত্রে বাংলাদেশ বন বিভাগের অনুমতি এর অনুমতি গ্রহণের জন্য এনআইডি তথ্য প্রদান আবশ্যক; শিক্ষার্থীদের জন্য স্টুডেন্ট আইডিও বাধ্যতামূলক।",
   },
 };
