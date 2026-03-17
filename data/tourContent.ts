@@ -163,7 +163,7 @@ export const content = {
       holder: "Name: M AKTARUZZAMAN OPU",
     },
     paymentNote:
-      "After payment, submit proof (screenshot/receipt) via the Pre-Registration Google Form. Form submission is mandatory.",
+      'After payment, complete the Pre-Registration by clicking the "Pre-Register Now" button. Pre-registration form submission is mandatory.',
 
     // Other Info
     preRegBtn: "Pre-Register Now",
@@ -279,7 +279,7 @@ export const content = {
       holder: "হিসাবধারীর নামঃ M AKTARUZZAMAN OPU",
     },
     paymentNote:
-      "টাকা জমা দেওয়ার পর প্রমাণসহ (স্ক্রিনশট/রসিদ) Pre-Registration এর নির্দিষ্ট Google Form টি পূরণ করা বাধ্যতামূলক!",
+      'পেমেন্ট সম্পন্ন করার পর "প্রি-রেজিস্ট্রেশন করুন" বাটনে ক্লিক করে প্রি-রেজিস্ট্রেশন সম্পন্ন করুন। প্রি-রেজিস্ট্রেশন ফর্ম জমা দেওয়া বাধ্যতামূলক।',
 
     // Other Info
     preRegBtn: "প্রি-রেজিস্ট্রেশন করুন",
@@ -292,16 +292,17 @@ export const content = {
   },
 };
 
+// Form content (e.g., notes related to requirements)
 export const formContent = {
   // English form content
   en: {
     nidNote:
-      "For travelling to the Sundarbans, NID is required for Bangladesh Forest Department's permission; students must also present a valid ID.",
+      "For travelling to the Sundarbans, National ID Card is required for Bangladesh Forest Department's permission; students must also present a valid ID.",
   },
 
   // Bengali form content
   bn: {
     nidNote:
-      "সুন্দরবনে ভ্রমণের ক্ষেত্রে বাংলাদেশ বন বিভাগের অনুমতি এর অনুমতি গ্রহণের জন্য এনআইডি তথ্য প্রদান আবশ্যক; শিক্ষার্থীদের জন্য স্টুডেন্ট আইডিও বাধ্যতামূলক।",
+      "সুন্দরবনে ভ্রমণের ক্ষেত্রে বাংলাদেশ বন বিভাগের অনুমতি এর অনুমতি গ্রহণের জন্য জাতীয় পরিচয় পত্রের তথ্য প্রদান আবশ্যক; শিক্ষার্থীদের জন্য স্টুডেন্ট আইডিও বাধ্যতামূলক।",
   },
 };

@@ -172,6 +172,7 @@ export default function FormPage() {
                       Full Name <span className="text-destructive">*</span>
                     </FieldLabel>
                     <input
+                      placeholder="Enter your full name"
                       type="text"
                       value={field.state.value}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -191,6 +192,7 @@ export default function FormPage() {
                         <span className="text-destructive">*</span>
                       </FieldLabel>
                       <input
+                        placeholder="20010110XX"
                         type="text"
                         value={field.state.value}
                         onChange={(e) => {
@@ -240,36 +242,6 @@ export default function FormPage() {
                 </form.Field>
               </div>
 
-              <form.Field name="nidNo">
-                {(field) => (
-                  <Field>
-                    <FieldLabel>
-                      NID Number <span className="text-destructive">*</span>
-                    </FieldLabel>
-                    <input
-                      type="text"
-                      value={field.state.value}
-                      onChange={(e) => {
-                        const value = e.target.value.replace(/[^0-9]/g, "");
-                        field.handleChange(value);
-                      }}
-                      required
-                      className="w-full px-4 py-3 bg-input border border-input rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
-                    />
-                  </Field>
-                )}
-              </form.Field>
-            </FieldGroup>
-
-            {/* Contact Information Section */}
-            <FieldGroup>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-1 h-6 bg-linear-to-b from-secondary to-secondary rounded" />
-                <h2 className="text-lg font-semibold text-foreground">
-                  Contact Information
-                </h2>
-              </div>
-
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <form.Field name="contactNo">
                   {(field) => (
@@ -278,6 +250,7 @@ export default function FormPage() {
                         Contact No <span className="text-destructive">*</span>
                       </FieldLabel>
                       <input
+                        placeholder="Enter your active Contact No"
                         type="text"
                         value={field.state.value}
                         onChange={(e) => {
@@ -291,24 +264,20 @@ export default function FormPage() {
                   )}
                 </form.Field>
 
-                <form.Field name="preRegAmount">
+                <form.Field name="nidNo">
                   {(field) => (
                     <Field>
                       <FieldLabel>
-                        Pre-Registered Amount{" "}
+                        National ID Card Number{" "}
                         <span className="text-destructive">*</span>
                       </FieldLabel>
                       <input
+                        placeholder="Enter your 10 or 17 digit NID No"
                         type="text"
                         value={field.state.value}
                         onChange={(e) => {
-                          const value = e.target.value.replace(/[^0-9.]/g, "");
-                          const parts = value.split(".");
-                          const validated =
-                            parts.length > 2
-                              ? parts[0] + "." + parts.slice(1).join("")
-                              : value;
-                          field.handleChange(validated);
+                          const value = e.target.value.replace(/[^0-9]/g, "");
+                          field.handleChange(value);
                         }}
                         required
                         className="w-full px-4 py-3 bg-input border border-input rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
@@ -319,6 +288,59 @@ export default function FormPage() {
               </div>
             </FieldGroup>
 
+            {/* Payment Information Section */}
+            <FieldGroup>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-1 h-6 bg-linear-to-b from-secondary to-secondary rounded" />
+                <h2 className="text-lg font-semibold text-foreground">
+                  Payment Information
+                </h2>
+              </div>
+
+              <form.Field name="preRegAmount">
+                {(field) => (
+                  <Field>
+                    <FieldLabel>
+                      Pre-Registered Amount (Minimum ৳3000)
+                      <span className="text-destructive">*</span>
+                    </FieldLabel>
+                    <input
+                      type="text"
+                      placeholder="3000"
+                      value={field.state.value}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/[^0-9.]/g, "");
+                        const parts = value.split(".");
+                        const validated =
+                          parts.length > 2
+                            ? parts[0] + "." + parts.slice(1).join("")
+                            : value;
+                        field.handleChange(validated);
+                      }}
+                      required
+                      className="w-full px-4 py-3 bg-input border border-input rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
+                    />
+                  </Field>
+                )}
+              </form.Field>
+            </FieldGroup>
+
+            <form.Field name="proofOfPayment">
+              {() => (
+                <FileUploadField
+                  fieldName="proofOfPayment"
+                  label="Proof of Payment"
+                  accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.pdf"
+                  required
+                  fileName={fileNames.proofOfPayment}
+                  fileSize={fileSizes.proofOfPayment}
+                  onFileChange={handleFileChange}
+                  onClearFile={clearFile}
+                  inputId="proofOfPayment"
+                />
+              )}
+            </form.Field>
+
             {/* Document Upload Section */}
             <FieldGroup>
               <div className="flex items-center gap-3 mb-4">
@@ -328,29 +350,13 @@ export default function FormPage() {
                 </h2>
               </div>
 
-              <form.Field name="proofOfPayment">
-                {() => (
-                  <FileUploadField
-                    fieldName="proofOfPayment"
-                    label="Proof of Payment"
-                    accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.pdf"
-                    required
-                    fileName={fileNames.proofOfPayment}
-                    fileSize={fileSizes.proofOfPayment}
-                    onFileChange={handleFileChange}
-                    onClearFile={clearFile}
-                    inputId="proofOfPayment"
-                  />
-                )}
-              </form.Field>
-
               {/* NID Documents */}
               <div className="grid grid-cols-2 gap-4">
                 <form.Field name="nidFrontSide">
                   {() => (
                     <FileUploadField
                       fieldName="nidFrontSide"
-                      label="NID Front"
+                      label="National ID Card (Front)"
                       accept="image/jpeg,image/png,image/webp,image/heic,image/heif"
                       required
                       fileName={fileNames.nidFrontSide}
@@ -366,7 +372,7 @@ export default function FormPage() {
                   {() => (
                     <FileUploadField
                       fieldName="nidBackSide"
-                      label="NID Back"
+                      label="National ID Card (Back)"
                       accept="image/jpeg,image/png,image/webp,image/heic,image/heif"
                       required
                       fileName={fileNames.nidBackSide}
@@ -385,7 +391,7 @@ export default function FormPage() {
                   {() => (
                     <FileUploadField
                       fieldName="studentIdFrontSide"
-                      label="Student ID Front"
+                      label="Student ID Card (Front)"
                       accept="image/jpeg,image/png,image/webp,image/heic,image/heif"
                       required
                       fileName={fileNames.studentIdFrontSide}
@@ -401,7 +407,7 @@ export default function FormPage() {
                   {() => (
                     <FileUploadField
                       fieldName="studentIdBackSide"
-                      label="Student ID Back"
+                      label="Student ID Card (Back)"
                       accept="image/jpeg,image/png,image/webp,image/heic,image/heif"
                       required
                       fileName={fileNames.studentIdBackSide}

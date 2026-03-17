@@ -235,7 +235,7 @@ export default function Home() {
 
         {/* CTA */}
         <section
-          className="text-center py-8 animate-fade-in"
+          className="text-center py-4 animate-fade-in"
           style={{ animationDelay: "0.5s" }}
         >
           <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
