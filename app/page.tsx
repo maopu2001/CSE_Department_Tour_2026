@@ -55,12 +55,16 @@ export default function Home() {
             {t.date}
           </p>
           <h1
-            className={`mb-3 font-bold leading-tight ${isBn ? "text-5xl md:text-7xl" : "text-4xl md:text-6xl"}`}
+            className={
+              isBn
+                ? "leading-tight font-design-bangla text-7xl md:text-9xl"
+                : "mt-5 leading-none md:first-letter:text-[12rem] first-letter:align-top text-7xl md:text-9xl font-design-english"
+            }
           >
             {t.title}
           </h1>
           <p
-            className={`text-lg md:text-xl opacity-90 ${isBn ? "font-bangla" : ""}`}
+            className={`text-xl md:text-2xl opacity-90 [word-spacing:0.2em] ${isBn ? "md:pl-40 md:-mt-7 font-design-bangla" : "md:pl-40 md:-mt-18 font-design-english"}`}
           >
             {t.subtitle}
           </p>

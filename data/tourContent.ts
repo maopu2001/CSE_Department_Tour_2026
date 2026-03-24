@@ -63,7 +63,7 @@ export const content = {
   // English content
   en: {
     // Basic Info
-    title: "Sundarban",
+    title: "Sundarbans",
     subtitle: "A Quest for Nature's Eternal Mystery",
     eventTitle: "CSE Department Tour 2026",
     dept: "Department of Computer Science and Engineering",
@@ -236,7 +236,7 @@ export const content = {
     university: "রাঙ্গামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
     address: "ঝগড়াবিল, রাঙ্গামাটি।",
     batch: "অভ্যুদয় - ৭ (৭ম ব্যাচ)",
-    date: `${formatBengaliDate(day1)} – ${formatBengaliDate(tourEndDate)} ২০২৬`,
+    date: `${formatBengaliDate(day1)} – ${formatBengaliDate(tourEndDate)}, ২০২৬`,
     duration: "মোট সময়ঃ ৪ দিন",
     shipStay: "৩ দিন ২ রাত শিপে",
     busTravel: "২ দিন/রাত বাসে যাতায়াত",
