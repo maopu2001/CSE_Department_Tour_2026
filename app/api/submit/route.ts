@@ -9,6 +9,7 @@ type formDataProp = {
   batchNo: string;
   contactNo: string;
   preRegAmount: string;
+  preRegMethod: string;
   proofOfPayment: File;
   nidNo: string;
   nidFrontSide: File;
@@ -28,6 +29,7 @@ export async function POST(request: NextRequest) {
       !formData.get("batchNo") ||
       !formData.get("contactNo") ||
       !formData.get("preRegAmount") ||
+      !formData.get("preRegMethod") ||
       !formData.get("proofOfPayment") ||
       !formData.get("nidNo") ||
       !formData.get("nidFrontSide") ||
@@ -49,6 +51,7 @@ export async function POST(request: NextRequest) {
       registrationNo: formData.get("registrationNo") as string,
       batchNo: formData.get("batchNo") as string,
       contactNo: formData.get("contactNo") as string,
+      preRegMethod: formData.get("preRegMethod") as string,
       preRegAmount: formData.get("preRegAmount") as string,
       proofOfPayment: formData.get("proofOfPayment") as File,
       nidNo: formData.get("nidNo") as string,
@@ -85,6 +88,7 @@ export async function POST(request: NextRequest) {
         name: data.name,
         registrationNo: data.registrationNo,
         batchNo: data.batchNo,
+        preRegMethod: data.preRegMethod,
         contactNo: data.contactNo,
         preRegAmount: data.preRegAmount,
         nidNo: data.nidNo,

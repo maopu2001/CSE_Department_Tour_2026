@@ -6,6 +6,7 @@ interface IPreRegInfo extends Document {
   batchNo: string;
   contactNo: string;
   preRegAmount: string;
+  preRegMethod: string;
   proofPDF: mongoose.Types.ObjectId;
   nidNo: string;
   nidPDF: mongoose.Types.ObjectId;
@@ -39,6 +40,11 @@ const PreRegInfoSchema = new Schema<IPreRegInfo>(
     preRegAmount: {
       type: String,
       required: [true, "Pre-registration amount is required"],
+    },
+    preRegMethod: {
+      type: String,
+      enum: ["bKash", "Bank", "Cash"],
+      required: [true, "Pre-registration method is required"],
     },
     proofPDF: {
       type: Schema.Types.ObjectId,

@@ -150,7 +150,7 @@ export const content = {
     bkash: {
       title: "bKash (Send Money)",
       account: "bkash No: 015-2171-2539",
-      charge: "bKash charge: ৳12.5 (per thousand)",
+      charge: "bKash Charge: ৳12.5 (per thousand)",
       copy: "01521712539",
       holder: "Name: M. Aktaruzzaman Opu",
     },
@@ -158,7 +158,7 @@ export const content = {
       title: "Bank Transfer",
       name: "Trust Bank PLC, Rangamati",
       account: "Account: 00480466000580",
-      charge: "Charge: Free",
+      charge: "Bank Charge: Free",
       copy: "00480466000580",
       holder: "Name: M AKTARUZZAMAN OPU",
     },
@@ -274,12 +274,12 @@ export const content = {
       title: "ব্যাংক ট্রান্সফার",
       name: "Trust Bank PLC, Rangamati",
       account: "হিসাব নম্বরঃ 00480466000580",
-      charge: "চার্জঃ ফ্রি",
+      charge: "ব্যাংক চার্জঃ ফ্রি",
       copy: "00480466000580",
       holder: "হিসাবধারীর নামঃ M AKTARUZZAMAN OPU",
     },
     paymentNote:
-      'পেমেন্ট সম্পন্ন করার পর "প্রি-রেজিস্ট্রেশন করুন" বাটনে ক্লিক করে প্রি-রেজিস্ট্রেশন সম্পন্ন করুন। প্রি-রেজিস্ট্রেশন ফর্ম জমা দেওয়া বাধ্যতামূলক।',
+      'পেমেন্ট সম্পন্ন করার পর "প্রি-রেজিস্ট্রেশন করুন" বাটনে ক্লিক করে প্রি-রেজিস্ট্রেশন সম্পন্ন করুন। প্রি-রেজিস্ট্রেশন ফর্ম পূরণ করা বাধ্যতামূলক।',
 
     // Other Info
     preRegBtn: "প্রি-রেজিস্ট্রেশন করুন",

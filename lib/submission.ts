@@ -7,6 +7,7 @@ interface FormSubmissionData {
   batchNo: string;
   contactNo: string;
   preRegAmount: string;
+  preRegMethod: string;
   nidNo: string;
   comment?: string;
 }

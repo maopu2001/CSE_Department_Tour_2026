@@ -17,6 +17,7 @@ interface FormData {
   batchNo: string;
   contactNo: string;
   preRegAmount: string;
+  preRegMethod: string;
   proofOfPayment?: File;
   nidNo: string;
   nidFrontSide?: File;
@@ -42,6 +43,7 @@ export default function FormPage() {
       batchNo: "",
       contactNo: "",
       preRegAmount: "",
+      preRegMethod: "",
       proofOfPayment: undefined,
       nidNo: "",
       nidFrontSide: undefined,
@@ -84,7 +86,9 @@ export default function FormPage() {
           setFileNames({});
           setFileSizes({});
         } else {
-          toast.error("Error submitting form");
+          if (data.error.includes("E11000 duplicate key error"))
+            toast.error("Registration Number already used");
+          else toast.error("Error submitting form");
         }
       } catch (error) {
         console.error("Error:", error);
@@ -297,32 +301,58 @@ export default function FormPage() {
                 </h2>
               </div>
 
-              <form.Field name="preRegAmount">
-                {(field) => (
-                  <Field>
-                    <FieldLabel>
-                      Pre-Registered Amount (Minimum ৳3000)
-                      <span className="text-destructive">*</span>
-                    </FieldLabel>
-                    <input
-                      type="text"
-                      placeholder="3000"
-                      value={field.state.value}
-                      onChange={(e) => {
-                        const value = e.target.value.replace(/[^0-9.]/g, "");
-                        const parts = value.split(".");
-                        const validated =
-                          parts.length > 2
-                            ? parts[0] + "." + parts.slice(1).join("")
-                            : value;
-                        field.handleChange(validated);
-                      }}
-                      required
-                      className="w-full px-4 py-3 bg-input border border-input rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
-                    />
-                  </Field>
-                )}
-              </form.Field>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <form.Field name="preRegMethod">
+                  {() => (
+                    <Field>
+                      <FieldLabel>
+                        Pre-Registration Method{" "}
+                        <span className="text-destructive">*</span>
+                      </FieldLabel>
+                      <select
+                        value={form.getFieldValue("preRegMethod")}
+                        onChange={(e) =>
+                          form.setFieldValue("preRegMethod", e.target.value)
+                        }
+                        required
+                        className="w-full px-4 py-3 bg-input border border-input rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all cursor-pointer"
+                      >
+                        <option value="">Select Payment Method</option>
+                        <option value="bKash">bKash</option>
+                        <option value="Bank">Bank</option>
+                        <option value="Cash">Cash</option>
+                      </select>
+                    </Field>
+                  )}
+                </form.Field>
+
+                <form.Field name="preRegAmount">
+                  {(field) => (
+                    <Field>
+                      <FieldLabel>
+                        Pre-Registered Amount (Minimum ৳3000)
+                        <span className="text-destructive">*</span>
+                      </FieldLabel>
+                      <input
+                        type="text"
+                        placeholder="3000"
+                        value={field.state.value}
+                        onChange={(e) => {
+                          const value = e.target.value.replace(/[^0-9.]/g, "");
+                          const parts = value.split(".");
+                          const validated =
+                            parts.length > 2
+                              ? parts[0] + "." + parts.slice(1).join("")
+                              : value;
+                          field.handleChange(validated);
+                        }}
+                        required
+                        className="w-full px-4 py-3 bg-input border border-input rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
+                      />
+                    </Field>
+                  )}
+                </form.Field>
+              </div>
             </FieldGroup>
 
             <form.Field name="proofOfPayment">
