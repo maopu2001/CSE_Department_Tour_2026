@@ -13,6 +13,7 @@ import {
   Copy,
   Check,
   FileImage,
+  Phone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { content } from "@/data/tourContent";
@@ -119,7 +120,7 @@ export default function Home() {
                   key={i}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-3 rounded-lg bg-card p-4 border border-border"
+                  className="flex items-start gap-3 rounded-lg bg-card p-4 border border-border hover:bg-accent/10"
                 >
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                   <span className="text-sm">{content.place}</span>
@@ -198,9 +199,7 @@ export default function Home() {
                   <p>{t.bkash.account}</p>
                   <CopyButton copy={t.bkash.copy} field="bkash" />
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  {t.bkash.charge}
-                </p>
+                <p className="text-sm text-destructive">{t.bkash.charge}</p>
                 <p className="text-muted-foreground">{t.bkash.holder}</p>
               </div>
             </div>
@@ -220,7 +219,7 @@ export default function Home() {
                   <p>{t.bank.account}</p>
                   <CopyButton copy={t.bank.copy} field="bank" />
                 </div>
-                <p className="text-sm text-muted-foreground">{t.bank.charge}</p>
+                <p className="text-sm text-destructive">{t.bank.charge}</p>
                 <p className="text-muted-foreground">{t.bank.holder}</p>
               </div>
             </div>
@@ -251,12 +250,94 @@ export default function Home() {
               {t.preRegBtn}
             </a>
           </Button>
-          <p className="mt-6 text-lg">{t.organizeTitle}</p>
-          <div className="mt-2 space-y-1">
-            <p className="mt-3 text-sm opacity-70">{t.batch}</p>
-            <p className="text-sm opacity-70">{t.dept}</p>
-            <p className="text-sm font-medium opacity-80">{t.university}</p>
-            <p className="text-xs opacity-70">{t.address}</p>
+
+          {/* Convener and Chairman Section */}
+          <div className="mt-8 pt-6 border-t border-border">
+            <p className="text-lg font-bold">{t.organizeTitle}</p>
+            <div className="mt-2 space-y-1 mb-8">
+              <p className="mt-3 text-sm opacity-70">{t.batch}</p>
+              <p className="text-sm opacity-70">{t.dept}</p>
+              <p className="text-sm font-medium opacity-80">{t.university}</p>
+              <p className="text-xs opacity-70">{t.address}</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {/* Convener */}
+              <div className="rounded-lg bg-card border border-border p-6 hover:bg-accent/10 cursor-pointer">
+                <p className="text-sm font-semibold text-primary uppercase tracking-wide">
+                  {t.convener.title}
+                </p>
+                <p className="text-lg font-bold text-foreground mt-2">
+                  {t.convener.name}
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  {t.convener.position}
+                </p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {t.convener.dept}
+                </p>
+                <a
+                  href={`mailto:${t.convener.email}`}
+                  className="text-xs text-primary hover:underline mt-3 block"
+                >
+                  {t.convener.emailText}
+                  {t.convener.email}
+                </a>
+              </div>
+
+              {/* Chairman */}
+              <div className="rounded-lg bg-card border border-border p-6 hover:bg-accent/10 cursor-pointer">
+                <p className="text-sm font-semibold text-primary uppercase tracking-wide">
+                  {t.chairman.title}
+                </p>
+                <p className="text-lg font-bold text-foreground mt-2">
+                  {t.chairman.name}
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  {t.chairman.position}
+                </p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {t.chairman.dept}
+                </p>
+                <a
+                  href={`mailto:${t.chairman.email}`}
+                  className="text-xs text-primary hover:underline mt-3 block"
+                >
+                  {t.chairman.emailText}
+                  {t.chairman.email}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Section */}
+          <div className="mt-8 pt-8 border-t border-border">
+            <p className="text-lg font-semibold mb-4">{t.contactTitle}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              {t.contacts.map((contact, index) => (
+                <Link
+                  key={index}
+                  href={`tel:${contact.phone}`}
+                  className="flex items-center gap-5 rounded-lg bg-card border border-border p-4 hover:bg-accent/10"
+                >
+                  <div className="shrink-0 size-10 rounded-full bg-primary/10  flex items-center justify-center">
+                    <Phone className="shrink-0 text-primary" />
+                  </div>
+
+                  <div className="text-left">
+                    <p className="text-sm font-semibold text-foreground">
+                      {contact.name}
+                    </p>
+                    <p className="text-[10px] text-muted-foreground">
+                      {contact.batch}
+                    </p>
+                    <p className="text-xs text-primary mt-1 block">
+                      {contact.phone}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
       </main>

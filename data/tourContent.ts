@@ -69,7 +69,7 @@ export const content = {
     dept: "Department of Computer Science and Engineering",
     university: "Rangamati Science and Technology University",
     address: "Jhagrabil, Rangamati.",
-    batch: "Ovvudoy 07 (7th Batch)",
+    batch: "Ovvudoy – 7 (7th Batch)",
     date: `${formatEnglishDate(day1)} – ${formatEnglishDate(tourEndDate)}, 2026`,
     duration: "4 Days Total",
     shipStay: "3 Days 2 Night on Ship",
@@ -172,6 +172,57 @@ export const content = {
       "We wish for the active participation and cooperation of students from all batches. Let's make this tour unforgettable together!",
     organizeTitle: "Organized by",
     organizer: "Organized by Ovvudoy – 7 (7th Batch)",
+
+    convener: {
+      title: "Convener",
+      name: "Dr. Touhidul Alam",
+      position: "Associate Professor",
+      dept: "Department of Computer Science and Engineering",
+      emailText: "Email: ",
+      email: "touhid@rmstu.ac.bd",
+    },
+    chairman: {
+      title: "Chairman",
+      name: "Ahmed Imtiaz",
+      position: "Assistant Professor",
+      dept: "Department of Computer Science and Engineering",
+      emailText: "Email: ",
+      email: "imtiaz@rmstu.ac.bd",
+    },
+
+    contactTitle: "Contact Us",
+    contacts: [
+      {
+        name: "M. Aktaruzzaman Opu",
+        batch: "Ovvudoy – 7 (7th Batch)",
+        phone: process.env.NEXT_PUBLIC_OPU as string,
+      },
+      {
+        name: "Nitol Das",
+        batch: "Ovvudoy – 7 (7th Batch)",
+        phone: process.env.NEXT_PUBLIC_NITOL as string,
+      },
+      {
+        name: "Md. Aynul Islam",
+        batch: "Ovvudoy – 7 (7th Batch)",
+        phone: process.env.NEXT_PUBLIC_AYNUL as string,
+      },
+      {
+        name: "Praggapan Chakma",
+        batch: "Ovvudoy – 7 (7th Batch)",
+        phone: process.env.NEXT_PUBLIC_PRAGGAPAN as string,
+      },
+      {
+        name: "Sejuti Das Jui",
+        batch: "Ovvudoy – 7 (7th Batch)",
+        phone: process.env.NEXT_PUBLIC_SEJUTI as string,
+      },
+      {
+        name: "Prathay Barua",
+        batch: "Ovvudoy – 7 (7th Batch)",
+        phone: process.env.NEXT_PUBLIC_PRATHAY as string,
+      },
+    ],
     langSwitch: "Bn",
   },
 
@@ -184,7 +235,7 @@ export const content = {
     dept: "কম্পিউটার সায়েন্স ও ইঞ্জিনিয়ারিং বিভাগ",
     university: "রাঙ্গামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
     address: "ঝগড়াবিল, রাঙ্গামাটি।",
-    batch: "অভ্যুদয় ০৭ (৭ম ব্যাচ)",
+    batch: "অভ্যুদয় - ৭ (৭ম ব্যাচ)",
     date: `${formatBengaliDate(day1)} – ${formatBengaliDate(tourEndDate)} ২০২৬`,
     duration: "মোট সময়ঃ ৪ দিন",
     shipStay: "৩ দিন ২ রাত শিপে",
@@ -288,6 +339,58 @@ export const content = {
       "সকল ব্যাচের শিক্ষার্থীদের সক্রিয় অংশগ্রহণ ও সহযোগিতা কামনা করছি। চলুন সবাই মিলে এই ট্যুরকে স্মরণীয় করে তুলি।",
     organizeTitle: "আয়োজনে",
     organizer: "ধন্যবাদান্তে, অভ্যুদয় – ৭ (৭ম ব্যাচ)",
+
+    convener: {
+      title: "আহ্বায়ক",
+      name: "ড. তৌহিদুল আলম",
+      position: "সহযোগী অধ্যাপক",
+      dept: "কম্পিউটার সায়েন্স ও ইঞ্জিনিয়ারিং বিভাগ",
+      emailText: "ই-মেইলঃ ",
+      email: "touhid@rmstu.ac.bd",
+    },
+    chairman: {
+      title: "বিভাগীয় প্রধান",
+      name: "আহমেদ ইমতিয়াজ",
+      position: "সহকারী অধ্যাপক",
+      dept: "কম্পিউটার সায়েন্স ও ইঞ্জিনিয়ারিং বিভাগ",
+      emailText: "ই-মেইলঃ ",
+      email: "imtiaz@rmstu.ac.bd",
+    },
+
+    contactTitle: "যোগাযোগ করুন",
+    contacts: [
+      {
+        name: "এম, আকতারুজ্জামান অপু",
+        batch: "অভ্যুদয় - ৭ (৭ম ব্যাচ)",
+        phone: process.env.NEXT_PUBLIC_OPU as string,
+      },
+      {
+        name: "নিটোল দাশ",
+        batch: "অভ্যুদয় - ৭ (৭ম ব্যাচ)",
+        phone: process.env.NEXT_PUBLIC_NITOL as string,
+      },
+      {
+        name: "মোঃ আয়নুল ইসলাম",
+        batch: "অভ্যুদয় - ৭ (৭ম ব্যাচ)",
+        phone: process.env.NEXT_PUBLIC_AYNUL as string,
+      },
+      {
+        name: "প্রজ্ঞাপন চাকমা",
+        batch: "অভ্যুদয় - ৭ (৭ম ব্যাচ)",
+        phone: process.env.NEXT_PUBLIC_PRAGGAPAN as string,
+      },
+      {
+        name: "সেঁজুতি দাশ জুঁই",
+        batch: "অভ্যুদয় - ৭ (৭ম ব্যাচ)",
+        phone: process.env.NEXT_PUBLIC_SEJUTI as string,
+      },
+      {
+        name: "প্রত্যয় বড়ুয়া",
+        batch: "অভ্যুদয় - ৭ (৭ম ব্যাচ)",
+        phone: process.env.NEXT_PUBLIC_PRATHAY as string,
+      },
+    ],
+
     langSwitch: "En",
   },
 };
