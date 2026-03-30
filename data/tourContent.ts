@@ -165,6 +165,23 @@ export const content = {
     paymentNote:
       'After payment, complete the Pre-Registration by clicking the "Pre-Register Now" button. Pre-registration form submission is mandatory.',
 
+    // Gallery
+    imageTitle: "Gallery",
+    images: [
+      {
+        title: "Ship - First Choice",
+        href: "/images/first",
+      },
+      {
+        title: "Ship - Second Choice",
+        href: "/images/second",
+      },
+      {
+        title: "Probable Food Menu",
+        href: "/images/food",
+      },
+    ],
+
     // Other Info
     preRegBtn: "Pre-Register Now",
     showFlyer: "View Flyer",
@@ -331,6 +348,23 @@ export const content = {
     },
     paymentNote:
       'পেমেন্ট সম্পন্ন করার পর "প্রি-রেজিস্ট্রেশন করুন" বাটনে ক্লিক করে প্রি-রেজিস্ট্রেশন সম্পন্ন করুন। প্রি-রেজিস্ট্রেশন ফর্ম পূরণ করা বাধ্যতামূলক।',
+
+    // Gallery
+    imageTitle: "গ্যালারি",
+    images: [
+      {
+        title: "শিপ - প্রথম পছন্দ",
+        href: "/images/first",
+      },
+      {
+        title: "শিপ - দ্বিতীয় পছন্দ",
+        href: "/images/second",
+      },
+      {
+        title: "সম্ভাব্য খাবার তালিকা",
+        href: "/images/food",
+      },
+    ],
 
     // Other Info
     preRegBtn: "প্রি-রেজিস্ট্রেশন করুন",

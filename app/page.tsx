@@ -14,6 +14,9 @@ import {
   Check,
   FileImage,
   Phone,
+  Images,
+  ShipIcon,
+  Utensils,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { content } from "@/data/tourContent";
@@ -233,6 +236,45 @@ export default function Home() {
                 {t.paymentNote}
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* Image */}
+        <section>
+          <SectionHeader
+            icon={<Images className="h-5 w-5" />}
+            title={t.imageTitle}
+          />
+          <div className="flex flex-col sm:flex-row gap-4 rounded-lg bg-card border border-border p-6 text-sm">
+            <Link
+              href={t.images[0].href}
+              className="flex-1 text-sm font-medium text-foreground"
+            >
+              <div className="flex rounded-md bg-accent/10 border border-accent/20 p-3">
+                <ShipIcon className="mr-2 h-4 w-4" />
+                {t.images[0].title}
+              </div>
+            </Link>
+
+            <Link
+              href={t.images[1].href}
+              className="flex-1 text-sm font-medium text-foreground"
+            >
+              <div className="flex rounded-md bg-accent/10 border border-accent/20 p-3">
+                <ShipIcon className="mr-2 h-4 w-4" />
+                {t.images[1].title}
+              </div>
+            </Link>
+
+            <Link
+              href={t.images[2].href}
+              className="flex-1 text-sm font-medium text-foreground"
+            >
+              <div className="flex rounded-md bg-accent/10 border border-accent/20 p-3">
+                <Utensils className="mr-2 h-4 w-4" />
+                {t.images[2].title}
+              </div>
+            </Link>
           </div>
         </section>
 
