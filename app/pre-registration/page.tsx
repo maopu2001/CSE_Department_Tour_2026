@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useQueries";
 import { formContent } from "@/data/tourContent";
-import { CheckCircle, Home, Loader2 } from "lucide-react";
+import { CheckCircle, FileText, Home, ImageIcon, Loader2 } from "lucide-react";
 import Link from "next/link";
 
 const MAX_FILE_SIZE_BYTES = 2 * 1024 * 1024;
@@ -119,10 +119,6 @@ export default function FormPage() {
       ...prev,
       [fieldName]: file.size,
     }));
-  };
-
-  const handleInvalidFile = (_fieldName: string, message: string) => {
-    toast.error(message);
   };
 
   const clearFile = (fieldName: string) => {
@@ -379,7 +375,6 @@ export default function FormPage() {
                   maxSizeBytes={MAX_FILE_SIZE_BYTES}
                   onFileChange={handleFileChange}
                   onClearFile={clearFile}
-                  onInvalidFile={handleInvalidFile}
                   inputId="proofOfPayment"
                 />
               )}
@@ -409,7 +404,6 @@ export default function FormPage() {
                       maxSizeBytes={MAX_FILE_SIZE_BYTES}
                       onFileChange={handleFileChange}
                       onClearFile={clearFile}
-                      onInvalidFile={handleInvalidFile}
                       inputId="nidFrontSide"
                     />
                   )}
@@ -428,7 +422,6 @@ export default function FormPage() {
                       maxSizeBytes={MAX_FILE_SIZE_BYTES}
                       onFileChange={handleFileChange}
                       onClearFile={clearFile}
-                      onInvalidFile={handleInvalidFile}
                       inputId="nidBackSide"
                     />
                   )}
@@ -450,7 +443,6 @@ export default function FormPage() {
                       maxSizeBytes={MAX_FILE_SIZE_BYTES}
                       onFileChange={handleFileChange}
                       onClearFile={clearFile}
-                      onInvalidFile={handleInvalidFile}
                       inputId="studentIdFrontSide"
                     />
                   )}
@@ -469,7 +461,6 @@ export default function FormPage() {
                       maxSizeBytes={MAX_FILE_SIZE_BYTES}
                       onFileChange={handleFileChange}
                       onClearFile={clearFile}
-                      onInvalidFile={handleInvalidFile}
                       inputId="studentIdBackSide"
                     />
                   )}
@@ -551,6 +542,41 @@ export default function FormPage() {
             </div>
           </div>
         )}
+      </div>
+      <div className="w-full mt-10 flex justify-center flex-col items-center gap-3">
+        <p className="font-semibold underline underline-offset-2">
+          Some Tools for Compression
+        </p>
+        <div className="flex flex-col sm:flex-row gap-2" id="compression-tools">
+          <Button
+            asChild
+            variant="ghost"
+            className="w-60 h-10 py-3 font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+          >
+            <Link
+              href="https://www.iloveimg.com/compress-image"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ImageIcon className="size-4 mr-2" />
+              Image Compression Tool
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant="ghost"
+            className="w-60 h-10 py-3 font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+          >
+            <Link
+              href="https://www.ilovepdf.com/compress_pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FileText className="size-4 mr-2" />
+              PDF Compression Tool
+            </Link>
+          </Button>
+        </div>
       </div>
     </div>
   );

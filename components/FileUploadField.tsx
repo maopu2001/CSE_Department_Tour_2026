@@ -2,6 +2,7 @@
 
 import { CheckCircle, Upload, X } from "lucide-react";
 import { Field, FieldLabel } from "@/components/ui/field";
+import { toast } from "sonner";
 
 interface FileUploadFieldProps {
   fieldName: string;
@@ -44,16 +45,30 @@ export function FileUploadField({
     const files = e.target.files;
     const selectedFile = files?.[0];
 
-    if (!selectedFile) {
-      return;
-    }
+    if (!selectedFile) return;
 
     if (maxSizeBytes && selectedFile.size > maxSizeBytes) {
       onFileChange(fieldName, null);
       e.target.value = "";
-      onInvalidFile?.(
-        fieldName,
-        `File size must be ${formatFileSize(maxSizeBytes)} or less.`,
+      toast.error(
+        <div
+          className="cursor-pointer w-full"
+          onClick={() => {
+            document
+              .getElementById("compression-tools")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          <div className="font-semibold">
+            File must be {formatFileSize(maxSizeBytes)} or less.
+          </div>
+          <div className="text-xs opacity-80">
+            Click here to use compression tools below.
+          </div>
+        </div>,
+        {
+          duration: 3000,
+        },
       );
       return;
     }
@@ -88,7 +103,7 @@ export function FileUploadField({
           />
           <label
             htmlFor={inputId}
-            className="h-20 flex items-center justify-center px-4 py-2 border-2 border-dashed border-border rounded-lg cursor-pointer hover:border-primary hover:bg-primary/5 transition-all"
+            className="h-20 flex items-center justify-center px-4 border-2 border-dashed border-border rounded-lg cursor-pointer hover:border-primary hover:bg-primary/5 transition-all"
           >
             {fileName ? (
               <div className="flex items-center gap-2 sm:gap-5 min-w-0 flex-1">
