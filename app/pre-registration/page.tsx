@@ -11,7 +11,7 @@ import { formContent } from "@/data/tourContent";
 import { CheckCircle, FileText, Home, ImageIcon, Loader2 } from "lucide-react";
 import Link from "next/link";
 
-const MAX_FILE_SIZE_BYTES = 2 * 1024 * 1024;
+const MAX_FILE_SIZE_BYTES = 800 * 1024;
 
 interface FormData {
   name: string;

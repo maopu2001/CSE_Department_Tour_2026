@@ -15,7 +15,6 @@ interface FileUploadFieldProps {
   maxSizeBytes?: number;
   onFileChange: (fieldName: string, file: File | null) => void;
   onClearFile: (fieldName: string) => void;
-  onInvalidFile?: (fieldName: string, message: string) => void;
   inputId: string;
 }
 
@@ -30,7 +29,6 @@ export function FileUploadField({
   maxSizeBytes,
   onFileChange,
   onClearFile,
-  onInvalidFile,
   inputId,
 }: FileUploadFieldProps) {
   const formatFileSize = (bytes: number) => {
