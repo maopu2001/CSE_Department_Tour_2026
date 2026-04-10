@@ -8,8 +8,10 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useQueries";
 import { formContent } from "@/data/tourContent";
-import { CheckCircle, Home, Loader2, LoaderCircle } from "lucide-react";
+import { CheckCircle, Home, Loader2 } from "lucide-react";
 import Link from "next/link";
+
+const MAX_FILE_SIZE_BYTES = 2 * 1024 * 1024;
 
 interface FormData {
   name: string;
@@ -88,7 +90,9 @@ export default function FormPage() {
         } else {
           if (data.error.includes("E11000 duplicate key error"))
             toast.error("Registration Number already used");
-          else toast.error("Error submitting form");
+          else if (data.error)
+            toast.error("Error submitting form: " + data.error);
+          else toast.error("Error submitting form. Please try again later.");
         }
       } catch (error) {
         console.error("Error:", error);
@@ -100,18 +104,25 @@ export default function FormPage() {
   });
 
   const handleFileChange = (fieldName: string, file: File | null) => {
-    if (file) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      form.setFieldValue(fieldName as any, file);
-      setFileNames((prev) => ({
-        ...prev,
-        [fieldName]: file.name,
-      }));
-      setFileSizes((prev) => ({
-        ...prev,
-        [fieldName]: file.size,
-      }));
+    if (!file) {
+      clearFile(fieldName);
+      return;
     }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    form.setFieldValue(fieldName as any, file);
+    setFileNames((prev) => ({
+      ...prev,
+      [fieldName]: file.name,
+    }));
+    setFileSizes((prev) => ({
+      ...prev,
+      [fieldName]: file.size,
+    }));
+  };
+
+  const handleInvalidFile = (_fieldName: string, message: string) => {
+    toast.error(message);
   };
 
   const clearFile = (fieldName: string) => {
@@ -360,12 +371,15 @@ export default function FormPage() {
                 <FileUploadField
                   fieldName="proofOfPayment"
                   label="Proof of Payment"
+                  subLabel="(Supported File: Image / PDF)"
                   accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.pdf"
                   required
                   fileName={fileNames.proofOfPayment}
                   fileSize={fileSizes.proofOfPayment}
+                  maxSizeBytes={MAX_FILE_SIZE_BYTES}
                   onFileChange={handleFileChange}
                   onClearFile={clearFile}
+                  onInvalidFile={handleInvalidFile}
                   inputId="proofOfPayment"
                 />
               )}
@@ -387,12 +401,15 @@ export default function FormPage() {
                     <FileUploadField
                       fieldName="nidFrontSide"
                       label="National ID Card (Front)"
+                      subLabel="(Supported File: Image)"
                       accept="image/jpeg,image/png,image/webp,image/heic,image/heif"
                       required
                       fileName={fileNames.nidFrontSide}
                       fileSize={fileSizes.nidFrontSide}
+                      maxSizeBytes={MAX_FILE_SIZE_BYTES}
                       onFileChange={handleFileChange}
                       onClearFile={clearFile}
+                      onInvalidFile={handleInvalidFile}
                       inputId="nidFrontSide"
                     />
                   )}
@@ -403,12 +420,15 @@ export default function FormPage() {
                     <FileUploadField
                       fieldName="nidBackSide"
                       label="National ID Card (Back)"
+                      subLabel="(Supported File: Image)"
                       accept="image/jpeg,image/png,image/webp,image/heic,image/heif"
                       required
                       fileName={fileNames.nidBackSide}
                       fileSize={fileSizes.nidBackSide}
+                      maxSizeBytes={MAX_FILE_SIZE_BYTES}
                       onFileChange={handleFileChange}
                       onClearFile={clearFile}
+                      onInvalidFile={handleInvalidFile}
                       inputId="nidBackSide"
                     />
                   )}
@@ -422,12 +442,15 @@ export default function FormPage() {
                     <FileUploadField
                       fieldName="studentIdFrontSide"
                       label="Student ID Card (Front)"
+                      subLabel="(Supported File: Image)"
                       accept="image/jpeg,image/png,image/webp,image/heic,image/heif"
                       required
                       fileName={fileNames.studentIdFrontSide}
                       fileSize={fileSizes.studentIdFrontSide}
+                      maxSizeBytes={MAX_FILE_SIZE_BYTES}
                       onFileChange={handleFileChange}
                       onClearFile={clearFile}
+                      onInvalidFile={handleInvalidFile}
                       inputId="studentIdFrontSide"
                     />
                   )}
@@ -438,12 +461,15 @@ export default function FormPage() {
                     <FileUploadField
                       fieldName="studentIdBackSide"
                       label="Student ID Card (Back)"
+                      subLabel="(Supported File: Image)"
                       accept="image/jpeg,image/png,image/webp,image/heic,image/heif"
                       required
                       fileName={fileNames.studentIdBackSide}
                       fileSize={fileSizes.studentIdBackSide}
+                      maxSizeBytes={MAX_FILE_SIZE_BYTES}
                       onFileChange={handleFileChange}
                       onClearFile={clearFile}
+                      onInvalidFile={handleInvalidFile}
                       inputId="studentIdBackSide"
                     />
                   )}

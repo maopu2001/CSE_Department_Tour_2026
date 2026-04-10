@@ -3,6 +3,8 @@ import { createPDF } from "@/lib/pdf";
 import { connectDB } from "@/lib/db";
 import { saveFormSubmissionWithPDFs } from "@/lib/submission";
 
+const MAX_FILE_SIZE_BYTES = 2 * 1024 * 1024;
+
 type formDataProp = {
   name: string;
   registrationNo: string;
@@ -61,6 +63,35 @@ export async function POST(request: NextRequest) {
       studentIdBackSide: formData.get("studentIdBackSide") as File,
       comment: (formData.get("comment") as string) || undefined,
     };
+
+    const uploadFields: Array<
+      keyof Pick<
+        formDataProp,
+        | "proofOfPayment"
+        | "nidFrontSide"
+        | "nidBackSide"
+        | "studentIdFrontSide"
+        | "studentIdBackSide"
+      >
+    > = [
+      "proofOfPayment",
+      "nidFrontSide",
+      "nidBackSide",
+      "studentIdFrontSide",
+      "studentIdBackSide",
+    ];
+
+    for (const field of uploadFields) {
+      if (data[field].size > MAX_FILE_SIZE_BYTES) {
+        return NextResponse.json(
+          {
+            success: false,
+            message: `${field} must be 2 MB or less`,
+          },
+          { status: 400 },
+        );
+      }
+    }
 
     const proofPDF = await createPDF({
       single: true,
