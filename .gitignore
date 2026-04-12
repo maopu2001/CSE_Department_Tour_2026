@@ -42,3 +42,4 @@ next-env.d.ts
 
 #export path
 /app/api/export
+/app/api/delete
