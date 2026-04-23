@@ -180,6 +180,27 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Information */}
+        <section>
+          <SectionHeader
+            icon={<Images className="h-5 w-5" />}
+            title={t.infoTitle}
+          />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 rounded-lg p-0 text-sm">
+            {t.infoOption.map(({ href, label }, i) => (
+              <Link
+                key={i}
+                href={href}
+                className="flex-1 text-sm font-medium text-foreground"
+              >
+                <div className="flex items-center gap-2 rounded-md bg-accent/10 border border-accent/20 p-3 mb-2 last:mb-0">
+                  {label}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         {/* Budget */}
         <section className="animate-fade-in" style={{ animationDelay: "0.3s" }}>
           <SectionHeader
@@ -187,7 +208,13 @@ export default function Home() {
             title={t.budgetTitle}
           />
           <div className="rounded-lg bg-card border border-border p-6 space-y-3">
-            <p className="text-lg font-bold text-foreground">{t.totalBudget}</p>
+            <p className="text-lg font-bold text-foreground">
+              <span>{t.totalBudgetText}</span>
+              <span className="line-through text-destructive">
+                {t.totalBudgetPrevious}
+              </span>
+              <span>{t.totalBudgetCurrent}</span>
+            </p>
             <p className="text-base font-semibold text-accent">{t.preReg}</p>
             <p className="text-sm text-muted-foreground">{t.charge}</p>
             <p className="text-sm text-muted-foreground">{t.remaining}</p>

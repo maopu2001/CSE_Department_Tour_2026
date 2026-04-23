@@ -1,5 +1,7 @@
+import { info } from "console";
+
 const TOUR_START_DATE = new Date("2026-05-10"); // Format: YYYY-MM-DD
-const PRE_REG_DATE = new Date("2026-04-10"); // Format: YYYY-MM-DD
+const PRE_REG_DATE = new Date("2026-04-17"); // Format: YYYY-MM-DD
 
 const addDays = (date: Date, days: number) => {
   const result = new Date(date);
@@ -137,11 +139,13 @@ export const content = {
 
     // Budget
     budgetTitle: "Budget",
-    totalBudget: "Total Budget: ৳8,000 (per student)",
+    totalBudgetText: "Total Budget: ",
+    totalBudgetPrevious: "৳8,000",
+    totalBudgetCurrent: " ৳8,500 (per student)",
     preReg: "Pre-Registration Fee: Minimum ৳3,000 (per student)",
     charge:
       "For bKash transaction, ৳12.5 charge applicable per thousand. No charge for bank transfers.",
-    remaining: "Remaining ৳5,000 can be paid on the bus on departure day.",
+    remaining: "Remaining ৳5,500 can be paid on the bus on departure day.",
     nonRefundable: "Pre-registration fee is Non-Refundable.",
     deadline: `Pre-Registration Deadline: ${formatEnglishDate(PRE_REG_DATE)}, 2026`,
 
@@ -169,6 +173,14 @@ export const content = {
     galleryTitle: "Gallery",
     galleryDescription:
       "Click here to view the images of the tour ship, food menu, and ship's floor design.",
+
+    // Information
+    infoTitle: "Tour Related Information",
+    infoOption: [
+      { href: "/participantList", label: "Participants' List" },
+      { href: "/guidelines", label: "Guidelines for Participants" },
+      { href: "/otherInfo", label: "Other Information" },
+    ],
 
     // Other Info
     preRegBtn: "Pre-Register Now",
@@ -308,12 +320,14 @@ export const content = {
 
     // Budget
     budgetTitle: "ট্যুর বাজেট",
-    totalBudget: "মোট ট্যুর বাজেটঃ ৮,০০০ টাকা (প্রতি শিক্ষার্থী)",
+    totalBudgetText: "মোট ট্যুর বাজেটঃ ",
+    totalBudgetPrevious: "৮,০০০ টাকা",
+    totalBudgetCurrent: " ৮,৫০০ টাকা (প্রতি শিক্ষার্থী)",
     preReg: "প্রি-রেজিস্ট্রেশন ফিঃ সর্বনিম্ন ৩,০০০ টাকা (প্রতি শিক্ষার্থী)",
     charge:
       "বিকাশে জমা দেওয়ার ক্ষেত্রে প্রতি হাজারে ১২.৫০ টাকা বিকাশ চার্জ প্রযোজ্য। ব্যাংক ট্রান্সফারের ক্ষেত্রে কোনো চার্জ নেই।",
     remaining:
-      "বাকি ৫,০০০ টাকা ট্যুরে যাওয়ার দিন বাসে ওঠার পর জমা দেওয়া যাবে।",
+      "বাকি ৫,৫০০ টাকা ট্যুরে যাওয়ার দিন বাসে ওঠার পর জমা দেওয়া যাবে।",
     nonRefundable: "প্রি-রেজিস্ট্রেশনের টাকা অফেরতযোগ্য (Non-Refundable)।",
     deadline: `প্রি-রেজিস্ট্রেশনের শেষ সময়ঃ ${formatBengaliDate(PRE_REG_DATE)}, ২০২৬`,
 
@@ -341,6 +355,14 @@ export const content = {
     galleryTitle: "গ্যালারি",
     galleryDescription:
       "এখানে ক্লিক বা ট্যাপ করে ট্যুর শিপ, খাবারের মেন্যু এবং শিপের ফ্লোর ডিজাইনের ছবি দেখুন।",
+
+    // Information
+    infoTitle: "ট্যুর সংক্রান্ত তথ্য",
+    infoOption: [
+      { href: "/participantList", label: "অংশগ্রহণকারীদের তালিকা" },
+      { href: "/guidelines", label: "অংশগ্রহণকারীদের নির্দেশিকা" },
+      { href: "/otherInfo", label: "অন্যান্য তথ্য" },
+    ],
 
     // Other Info
     preRegBtn: "প্রি-রেজিস্ট্রেশন করুন",
