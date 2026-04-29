@@ -17,6 +17,8 @@ type Participant = {
   createdAt: Date;
 };
 
+const dynamic = "force-dynamic";
+
 export default async function Info() {
   const participants: Participant[] = await getParticipantList();
 
@@ -55,6 +57,7 @@ export default async function Info() {
                   {participant.batchNo}
                 </TableCell>
                 <TableCell className="text-right">
+                  {/* FIXME: fix this to Bangladesh standard time */}
                   {format(
                     new Date(participant.createdAt),
                     "dd MMMM, yy; hh:mm a",
