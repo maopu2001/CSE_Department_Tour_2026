@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Table,
   TableBody,
@@ -8,6 +10,8 @@ import {
 } from "@/components/ui/table";
 import { getParticipantList } from "./getParticipantList";
 import { format } from "date-fns";
+import { useEffect, useState } from "react";
+import { LoadingOverlay } from "@/components/LoadingOverlay";
 
 type Participant = {
   name: string;
@@ -17,10 +21,23 @@ type Participant = {
   createdAt: Date;
 };
 
-const dynamic = "force-dynamic";
+export default function Info() {
+  const [participants, setParticipants] = useState<Participant[]>([]);
+  const [loading, setLoading] = useState(true);
 
-export default async function Info() {
-  const participants: Participant[] = await getParticipantList();
+  useEffect(() => {
+    const fetchParticipants = async () => {
+      setLoading(true);
+      const data = await getParticipantList();
+      setParticipants(data);
+      setLoading(false);
+    };
+    fetchParticipants();
+  }, []);
+
+  if (loading) {
+    return <LoadingOverlay isLoading />;
+  }
 
   return (
     <main className="w-9/10 mx-auto space-y-8">
