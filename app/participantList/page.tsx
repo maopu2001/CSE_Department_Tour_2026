@@ -12,6 +12,7 @@ import { getParticipantList } from "./getParticipantList";
 import { format } from "date-fns";
 import { useEffect, useState } from "react";
 import { LoadingOverlay } from "@/components/LoadingOverlay";
+import { cn } from "@/lib/utils";
 
 type Participant = {
   name: string;
@@ -53,7 +54,6 @@ export default function Info() {
               <TableHead className="text-center font-bold">Paid</TableHead>
               <TableHead className="text-center font-bold">Remaining</TableHead>
               <TableHead className="text-center font-bold">Batch No</TableHead>
-              <TableHead className="text-right font-bold">Created At</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -66,19 +66,21 @@ export default function Info() {
                   ৳{participant.preRegAmount}
                 </TableCell>
                 <TableCell className="text-center">
-                  <span className="bg-secondary/70 rounded-lg py-1 px-4">
-                    ৳{participant.remAmount}
+                  <span
+                    className={cn(
+                      "bg-secondary/70 rounded-lg py-1 px-4",
+                      participant.remAmount === 0
+                        ? "bg-green-400/60"
+                        : "bg-secondary/70",
+                    )}
+                  >
+                    {participant.remAmount === 0
+                      ? "Fully Paid"
+                      : `৳${participant.remAmount}`}
                   </span>
                 </TableCell>
                 <TableCell className="text-center">
                   {participant.batchNo}
-                </TableCell>
-                <TableCell className="text-right">
-                  {/* FIXME: fix this to Bangladesh standard time */}
-                  {format(
-                    new Date(participant.createdAt),
-                    "dd MMMM, yy; hh:mm a",
-                  )}
                 </TableCell>
               </TableRow>
             ))}

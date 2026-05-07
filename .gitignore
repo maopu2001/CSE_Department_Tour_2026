@@ -40,6 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-#export path
+#local paths
 /app/api/export
 /app/api/delete
+/app/api/modify

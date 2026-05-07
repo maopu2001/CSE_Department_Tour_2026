@@ -178,8 +178,11 @@ export const content = {
     infoTitle: "Tour Related Information",
     infoOption: [
       { href: "/participantList", label: "Participants' List" },
-      { href: "/guidelines", label: "Guidelines for Participants" },
-      { href: "/otherInfo", label: "Other Information" },
+      { href: "/trip-plan", label: "Full Trip Plan" },
+      {
+        href: "/guidelines",
+        label: "Important Guidelines",
+      },
     ],
 
     // Other Info
@@ -360,8 +363,8 @@ export const content = {
     infoTitle: "ট্যুর সংক্রান্ত তথ্য",
     infoOption: [
       { href: "/participantList", label: "অংশগ্রহণকারীদের তালিকা" },
-      { href: "/guidelines", label: "অংশগ্রহণকারীদের নির্দেশিকা" },
-      { href: "/otherInfo", label: "অন্যান্য তথ্য" },
+      { href: "/trip-plan", label: "ফুল ট্রিপ প্ল্যান" },
+      { href: "/guidelines", label: "গুরুত্বপূর্ণ নির্দেশিকা" },
     ],
 
     // Other Info
